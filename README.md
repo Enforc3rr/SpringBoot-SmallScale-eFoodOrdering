@@ -1,5 +1,5 @@
 # SpringBoot-SmallScale-eFoodOrdering (Ghar Ka Khana)
-This is a small scale food ordering web-app , created using Spring Boot and Html+BootStrap.
+Small Scale Food Ordering Web-App Made With The Help Of Spring Boot And Thymeleaf (HTML Rendering Engine)
 
 ## Update 3rd-January-2021
 ### Fixed ->
