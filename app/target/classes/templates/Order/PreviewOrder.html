@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Preview Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<form th:action="@{/order/saveorder}" method="get">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Dish Name</th>
+            <th scope="col">Dish Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prevDish : ${preview}">
+            <td th:text="${prevDish.DishName}" />
+            <td th:text="${prevDish.DishCost}" />
+        </tr>
+        <tr>
+            <td>TOTAL -> </td>
+            <td th:text="${total}" />
+        </tr>
+        </tbody>
+    </table>
+
+    <input type="submit" class="btn btn-dark btn-large">
+</form>
+</body>
+</html>

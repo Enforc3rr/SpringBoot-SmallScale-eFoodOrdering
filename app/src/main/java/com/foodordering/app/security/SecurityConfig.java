@@ -1,0 +1,42 @@
+package com.foodordering.app.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.sql.DataSource;
+
+@EnableWebSecurity
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    DataSource dataSource;
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery("SELECT username , password , user_enabled FROM user_entity WHERE username = ?")
+                .authoritiesByUsernameQuery("SELECT username , role FROM user_entity WHERE username = ?")
+                .passwordEncoder(bCryptPasswordEncoder());
+    }
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/order").hasAuthority("User")
+                .antMatchers("/").permitAll()
+                .and()
+                .formLogin()
+                .defaultSuccessUrl("/order");
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+    }
+}

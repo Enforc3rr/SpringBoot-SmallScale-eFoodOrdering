@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+</head>
+<body>
+<form th:action="@{order/previeworder}" method="post">
+    <select th:field="${order.dishids}" multiple="multiple">
+        <option
+                th:each="dish : ${dishList}"
+                th:value="${dish.dishid}"
+                th:text="${dish.dishName}"
+            />
+    </select>
+    <input type="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="Include::BootstrapHeadPartAndCompiler"></head>
+
+<body>
+
+<!-- Navigation -->
+<nav th:replace ="Include::NavBar">
+</nav>
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0" th:src="@{http://placehold.it/900x400}" alt="">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Ghar Ka Sudh Khana</h1>
+            <p> हिंदी परीक्षण</
+            </p>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">FEATURED DISH</p>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title"><a th:text ="${Dish.dishName}"></a></h2>
+                    <p class="card-text"><a th:text="${Dish.dishDescription}"></a></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-sm">Order</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title"><a th:text="${Dish.dishName}"></a></h2>
+                    <p class="card-text"><a th:text="${Dish.dishDescription}"></a></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-sm">Order</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title"><a th:text="${Dish.dishName}"></a></h2>
+                    <p class="card-text"><a th:text="${Dish.dishDescription}"></a></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-sm">Order</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-4 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Ghar Ka Khana</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="@{JS/jquery.min.js}"></script>
+<script src="@{/Bootstrap/JS/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

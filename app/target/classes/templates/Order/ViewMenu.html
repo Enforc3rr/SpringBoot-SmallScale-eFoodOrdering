@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="row">S.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Dish Type</th>
+        <th scope="col">Dish Cost</th>
+        <th scope="col">Dish Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="order:${orderList}">
+        <th scope="row" th:text="${order.dishid}"></th>
+        <td th:text="${order.dishName}"/>
+        <td th:text="${order.dishType}"/>
+        <td th:text="${order.dishCost}" />
+        <td th:text="${order.dishDescription}" />
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
